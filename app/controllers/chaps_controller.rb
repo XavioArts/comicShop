@@ -1,0 +1,2 @@
+class ChapsController < ApplicationController
+end
