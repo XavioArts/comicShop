@@ -1,14 +1,14 @@
 class ComicsController < ApplicationController
 
-    before_action :set_comic, only: [:show, :update, :edit, :destroy]
     before_action :get_comics
+    before_action :set_comic, only: [:show, :update, :edit, :destroy]
 
     def index
         render component: "Comics", props: { comics: @comics }
     end
 
     def show
-        authenticity_token: session[:_csrf_token]
+        ##authenticity_token: session[:_csrf_token]
         render component: "Comic", props: { comic: @comic, chaps: @comic.chaps, authenticity_token: session[:_csrf_token] }
         ## trying out using the authenticity token
     end
@@ -27,7 +27,8 @@ class ComicsController < ApplicationController
     end
 
     def edit
-        render component: "ComicEdit", props: {comic: @comic}
+        ##authenticity_token: session[:_csrf_token]
+        render component: "ComicEdit", props: {comic: @comic, authenticity_token: session[:_csrf_token]}
     end
 
     def update
