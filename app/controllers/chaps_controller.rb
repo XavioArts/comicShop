@@ -18,7 +18,7 @@ class ChapsController < ApplicationController
     def create
         @chap = @comic.chaps.new(set_params)
         if @chap.save
-            redirect_to [@comic, @chap]
+            redirect_to comic_chaps_path(@comic)
         else
             render :new
         end
@@ -30,7 +30,7 @@ class ChapsController < ApplicationController
 
     def update
         if @chap.update(set_params)
-            redirect_to [@comic, @chap]
+            redirect_to comic_chaps_path(@comic)
         else
             render :edit
         end

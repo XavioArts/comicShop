@@ -21,6 +21,8 @@ const Chaps = (props) => {
             <h3>Written by {props.comic.author}</h3>
             <p>Synopsis: {props.comic.syn}</p>
             <a href="/comics">Back to home</a>
+            <br></br>
+            <a href={`/comics/${props.comic.id}/chaps/new`}>Add a new chapter</a>
             {renderChaps()}
         </div>
     );
