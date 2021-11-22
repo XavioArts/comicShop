@@ -8,18 +8,20 @@ class ComicsController < ApplicationController
     end
 
     def show
-        ##authenticity_token: session[:_csrf_token]
-        render component: "Comic", props: { comic: @comic, chaps: @comic.chaps, authenticity_token: session[:_csrf_token] }
+        ## authenticity_token:session[:_csrf_token]
+        render component: "Comic", props: { comic: @comic, chaps: @comic.chaps }
         ## trying out using the authenticity token
+        ## skipping the authenticity token
     end
 
     def new
+        ## authenticity_token:session[:_csrf_token]
         render component: "ComicNew", props: {comic: @comic }
     end
 
     def create
         @comic = Comic.new(set_params)
-        if @sub.save
+        if @comic.save
             redirect_to comics_path
         else
             render :new
@@ -27,8 +29,8 @@ class ComicsController < ApplicationController
     end
 
     def edit
-        ##authenticity_token: session[:_csrf_token]
-        render component: "ComicEdit", props: {comic: @comic, authenticity_token: session[:_csrf_token]}
+        ## authenticity_token:session[:_csrf_token]
+        render component: "ComicEdit", props: {comic: @comic }
     end
 
     def update

@@ -21,7 +21,7 @@ const Comic = (props) => {
                 <a href={`/comics/${props.comic.id}/edit`}>Edit this comic</a>
                 <a href={`/comics/${props.comic.id}`} data-method="delete">Delete this comic</a>
             </div>
-            <h5>{props.comic.sum}</h5>
+            <h3>{props.comic.sum}</h3>
             <p>Synposis:</p>
             <p>{props.comic.syn}</p>
             <h2><a href={`/comics/${props.comic.id}/chaps`}>Chapters:</a></h2>
